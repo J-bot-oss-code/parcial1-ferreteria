@@ -20,8 +20,8 @@ public static class Pruebas
             ("Descuento desde RD$ 4000", Precios.Descuento(4000m) == 320m),
             ("Envío de 300 por debajo de 10000", Precios.CargoEnvio(100m) == 300m),
             ("Envío gratis desde 10000", Precios.CargoEnvio(10000m) == 0m),
-            ("El resumen muestra el cargo correcto", Reporte.ResumenConEnvio(Compra).Contains($"Env\u00edo: 300.00")),
-            ("El resumen muestra envío gratis desde 10000", Reporte.ResumenConEnvio(new List<Linea> { new("Compra grande", 1, 10000m) }).Contains($"Env\u00edo: 0.00")),
+            ("El resumen muestra el cargo correcto", Reporte.ResumenConEnvio(Compra).Contains("Envío: 300.00")),
+            ("El resumen muestra envío gratis desde 10000", Reporte.ResumenConEnvio(new List<Linea> { new("Compra grande", 1, 10000m) }).Contains("Envío: 0.00")),
             ("Se rechaza cantidad cero", CantidadInvalida(0)),
             ("Se rechaza cantidad negativa", CantidadInvalida(-1)),
         };
